@@ -11,13 +11,13 @@ import java.io.IOException;
 import java.util.Objects;
 
 
-public class HelloApplication extends Application {
+public class TheSoundApp extends Application {
     JsonSaveFile jsonSaveFile = new JsonSaveFile();
 
     @Override
     public void start(Stage stage) throws IOException, ParseException {
-        jsonSaveFile.write();
-        jsonSaveFile.read();
+        jsonSaveFile.writeToFile();
+        jsonSaveFile.readFile();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("mainMenu.fxml")));
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -33,7 +33,6 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-
         launch();
     }
 }

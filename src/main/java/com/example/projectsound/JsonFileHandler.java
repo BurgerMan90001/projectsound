@@ -5,6 +5,8 @@ import org.json.simple.parser.JSONParser;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.PrintWriter;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 
 class JsonSaveFile
@@ -12,13 +14,14 @@ class JsonSaveFile
 {
     String fileName = "savefile.json";
 
-    void write() throws FileNotFoundException {
+    void writeToFile() throws FileNotFoundException {
 // i stole the code from online !!!!
         JSONObject jo = new JSONObject();
 
 
         Song song1 = new Song("Midnight Rain","ghffgh",3.76,2022);
         // putting data to JSONObject
+
         jo.put("songName",song1.getSongName());
         jo.put("artist",song1.getArtist());
         jo.put("runTimeInMinutes",song1.getRunTimeInMinutes());
@@ -34,7 +37,7 @@ class JsonSaveFile
         pw.close();
 
     }
-    void read() {
+    void readFile() {
         JSONParser parser = new JSONParser();
         try {
             Object obj = parser.parse(new FileReader("C:/Users/yoitt/IdeaProjects/projectsound/savefile.json"));
@@ -46,26 +49,8 @@ class JsonSaveFile
             System.out.println(songName);
 
         } catch(Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
-    }
-
-
-    private void parseEmployeeObject(JSONObject song) {
-
-        JSONObject songObject = (JSONObject) song.get("song");
-
-        //Get employee first name
-        String songName = (String) songObject.get("songName");
-        System.out.println(songName);
-
-        //Get employee last name
-        String artist = (String) songObject.get("artist");
-        System.out.println(artist);
-
-        //Get employee website name
-        double runTimeInMinutes = (double) songObject.get("runTimeInMinutes");
-        System.out.println(runTimeInMinutes);
     }
 }
 
