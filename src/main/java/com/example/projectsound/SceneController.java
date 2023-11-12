@@ -19,6 +19,7 @@ public class SceneController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private int buttonClicks;
 
     @FXML
     ImageView myImageView;
@@ -58,7 +59,7 @@ public class SceneController {
         stage.show();
     }
     public int getButtonClicks() {
-        int buttonClicks = 0;
+
         return buttonClicks;
     }
 

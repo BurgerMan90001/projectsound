@@ -16,7 +16,7 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException, ParseException {
-       // jsonSaveFile.write();
+        jsonSaveFile.write();
         jsonSaveFile.read();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("mainMenu.fxml")));
         Scene scene = new Scene(root);
