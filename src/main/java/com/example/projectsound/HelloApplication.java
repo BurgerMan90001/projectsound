@@ -12,9 +12,9 @@ import java.util.Objects;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-      //  ArtistPage artistPage = new ArtistPage();
-      //  Song song1 = new Song("Test","Artist",3.76,1976);
-     //   artistPage.addSong(song1);
+        ArtistPage artistPage = new ArtistPage();
+        Song song1 = new Song("Test","Artist",3.76,1976);
+        artistPage.addSong(song1);
     //    SceneController sceneController = new SceneController();
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("mainMenu.fxml")));
