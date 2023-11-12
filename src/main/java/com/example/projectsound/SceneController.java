@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class SceneController {
+
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -27,18 +28,17 @@ public class SceneController {
     Button artistButton;
     @FXML
     Button mainMenuButton;
-    private int imageSwitchButtonClicks = 0;
     Image myImage1 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("gamer1.jpg")));
     Image myImage2 = new Image(Objects.requireNonNull(getClass().getResourceAsStream("BLEH.jpg")));
     // methods are the button clicks !!
     public void displayImage() {
-        imageSwitchButtonClicks += 1;
+
         if (myImageView.getImage() == myImage1) {
             myImageView.setImage(myImage2);
         } else {
             myImageView.setImage(myImage1);
         }
-        System.out.println(imageSwitchButtonClicks);
+
 
     }
 
@@ -57,8 +57,9 @@ public class SceneController {
         stage.setScene(scene);
         stage.show();
     }
-    public int getImageSwitchButtonClicks() {
-        return imageSwitchButtonClicks;
+    public int getButtonClicks() {
+        int buttonClicks = 0;
+        return buttonClicks;
     }
 
 }

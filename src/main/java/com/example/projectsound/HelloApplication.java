@@ -15,15 +15,21 @@ public class HelloApplication extends Application {
         ArtistPage artistPage = new ArtistPage();
         Song song1 = new Song("Test","Artist",3.76,1976);
         artistPage.addSong(song1);
-    //    SceneController sceneController = new SceneController();
-
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("mainMenu.fxml")));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        WriterAndReader writerAndReader = new WriterAndReader();
-        writerAndReader.writer();
 
+    }
+    @Override
+    public void stop() {
+        CreateFile createFile = new CreateFile();
+        WriteToFile writeToFile = new WriteToFile();
+        ReadFile readFile = new ReadFile();
+
+        createFile.create();
+        writeToFile.write();
+        readFile.read();
     }
 
     public static void main(String[] args) {
