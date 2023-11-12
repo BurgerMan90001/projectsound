@@ -23,13 +23,11 @@ public class HelloApplication extends Application {
     }
     @Override
     public void stop() {
-        CreateFile createFile = new CreateFile();
-        WriteToFile writeToFile = new WriteToFile();
-        ReadFile readFile = new ReadFile();
-
-        createFile.create();
-        writeToFile.write();
-        readFile.read();
+        SaveFile saveFile = new SaveFile();
+     //   saveFile.read();
+        saveFile.create();
+    //    saveFile.write();
+        saveFile.read();
     }
 
     public static void main(String[] args) {
