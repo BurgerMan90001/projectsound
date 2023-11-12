@@ -7,6 +7,7 @@ public class Song {
     private double runTimeInMinutes;
     private int yearReleased; //not really needed
 
+
     Song(String songName, String artist, double runTimeInMinutes, int yearReleased) {
         this.songName = songName;
         this.artist = artist;
