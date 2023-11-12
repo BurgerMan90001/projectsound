@@ -1,14 +1,16 @@
 package com.example.projectsound;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
+
 
 class SaveFile {
     String pathFileName = "filename.txt";
-    void create() {
+    //Gson gson = new Gson();
+
+
+
+    void createFile() {
         try {
             File myObj = new File(pathFileName);
             System.out.println(myObj.getPath());
@@ -17,26 +19,30 @@ class SaveFile {
             } else {
                 System.out.println("File already exists.");
             }
-            this.write();
+
         } catch (IOException e) {
             System.out.println("An error occurred.");
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
-    void write() {
+    void writeToFile(String string,boolean addToFile) {
         try {
-            FileWriter myWriter = new FileWriter(pathFileName);
-            myWriter.write("FILE");
-            myWriter.write("/FREE");
-            myWriter.close();
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(pathFileName));
+            if (addToFile) {
+                bufferedWriter.append(string);
+            } else {
+                bufferedWriter.write(string);
+            }
+            bufferedWriter.close();
+
 
             System.out.println("Successfully wrote to the file.");
         } catch (IOException e) {
             System.out.println("An error occurred.");
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
-    void read() {
+    void readFile() {
         try {
             File myObj = new File(pathFileName);
             Scanner myReader = new Scanner(myObj);
@@ -44,7 +50,7 @@ class SaveFile {
             myReader.close();
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
     void printData(Scanner myReader) {

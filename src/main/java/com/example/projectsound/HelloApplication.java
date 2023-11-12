@@ -10,11 +10,11 @@ import java.util.Objects;
 
 
 public class HelloApplication extends Application {
+    SaveFile saveFile = new SaveFile();
+
     @Override
     public void start(Stage stage) throws IOException {
-        ArtistPage artistPage = new ArtistPage();
-        Song song1 = new Song("Test","Artist",3.76,1976);
-        artistPage.addSong(song1);
+        saveFile.createFile();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("mainMenu.fxml")));
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -23,11 +23,11 @@ public class HelloApplication extends Application {
     }
     @Override
     public void stop() {
-        SaveFile saveFile = new SaveFile();
-     //   saveFile.read();
-        saveFile.create();
-    //    saveFile.write();
-        saveFile.read();
+
+        saveFile.writeToFile("oithjmfgo",true);
+
+
+        saveFile.readFile();
     }
 
     public static void main(String[] args) {
